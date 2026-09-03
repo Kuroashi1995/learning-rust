@@ -18,3 +18,13 @@ There is also the feature to use `cargo check` which checks the source code to m
 ### Building for release
 Using `cargo build --release` compiles the code with optimizations, this makes the compile time considerably longer, and the output goes to the release dir in the target.
 When running benchmarks is the obvious choice to use the release command
+
+### Using cargo for dependencies
+There is a special header for the dependencies section in the `Cargo.toml`, where you define you dependency with the SemVer.
+Afterwards, when a `cargo build` execution is made, dependencies crates will be retrived
+
+### Cargo update
+This command `cargo update` updates all the dependencies in the `Cargo.toml` up tho the same compatible version.
+
+### Cargo docs
+This command `cargo docs --open` opens the documentation of all dependencies in the browser
