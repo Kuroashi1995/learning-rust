@@ -18,6 +18,7 @@ Meaning that you can handle high level responsabilities if inexperienced or get 
 - Enums
 - Traits
 - [Shadowing](#shadowing)
+- [Functions](#functions)
 
 ### Crates
 This are how the packages of Rust are called, there are binary crates, which are the programs made to be ran, and crates that cannot run as standalones and are made to be part of other crate
@@ -40,7 +41,7 @@ example:
 const THREE_HOURS_IN_SECONDS: u32 = 3 * 60 * 60;
 ```
 
-### Shadowing
+### Shadowi
 The concept of shadowing is the ability to re declare a variable with the same name, "shadowing" the previous declarations of that variable. It lasts until out of scope or getting shadowed again.
 example:
 ```rust
@@ -72,3 +73,29 @@ This are the classic primitives that we all know, but they can only represent on
 This classification hold types that can store multiple values, such as:
 - tuples (this can store many types, fixed len)
 - arrays (can hold many values of the same type, fixed len)
+
+### Functions
+Functions in Rust are quite simple and similar to other languages, the main issue relies in the statement vs expression differentiation needed to fully grasp how functions work in Rust.
+- Statements: This are instructions that perform some action and do not return a value
+- Expressions: This instructions return a value
+
+As a simple example lets look at this code:
+```rust
+fn main() {
+        let y = 6;
+}
+```
+In this code, the line `let y = 6;` is an statement, it assigns the value 6 to the variable `y` and returns nothing
+In the other hand:
+```rust
+fn main() {
+        let x = five()
+        println!("The value of x is {x}")
+}
+fn five() {
+        lex y = 4;
+        x + 1
+}
+```
+This code will compile, and will print "The value of x is 5", Because the last line of the five function is an expression `x + 1`. If we were to change it to `x + 1;`, that would turn it into an statement, removing the returned value and making the five function return the unit type `()`.
+Functions in Rust usually evaluate to the last expression in the body of the function, the keyword `return` is used to return early from the function. Return types must be declared explicitely with `->` in the function declaration
