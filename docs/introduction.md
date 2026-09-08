@@ -10,6 +10,7 @@ Meaning that you can handle high level responsabilities if inexperienced or get 
 
 ## Important keywords
 - Macros
+- [Types](#types)
 - [Crates](#crates)
 - References
 - [Mutability](#mutability)
@@ -54,3 +55,20 @@ fn main() {
     }
 ```
 Another advantage of shadowing over mutability, is that we do not need to change the type of the variable when reassigning a new value to the variable. But the tradeoff is more stack memory usage.
+
+### Types
+Rust is a statically typed language, so it needs to know the types used in compile time, some can be inferred by use, other need explicit anotation otherwise compilation will fail.
+
+There are two type classifications in Rust, Scalar Types and Compound Types.
+
+#### Scalar Types
+This are the classic primitives that we all know, but they can only represent one value
+- int: (can be signed "i" or unsigned "u") like i32 for a 32-byte signed integer or u32 for a 32-byte unisgned integer
+- floating point: (are allways signed) like f32 or f64
+- booleans: (notation is `bool`)
+- char: represents a single UTF-8 char value
+
+#### Compound Types
+This classification hold types that can store multiple values, such as:
+- tuples (this can store many types, fixed len)
+- arrays (can hold many values of the same type, fixed len)
