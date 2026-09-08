@@ -19,6 +19,7 @@ Meaning that you can handle high level responsabilities if inexperienced or get 
 - Traits
 - [Shadowing](#shadowing)
 - [Functions](#functions)
+- [Loops](#loops)
 
 ### Crates
 This are how the packages of Rust are called, there are binary crates, which are the programs made to be ran, and crates that cannot run as standalones and are made to be part of other crate
@@ -99,3 +100,7 @@ fn five() {
 ```
 This code will compile, and will print "The value of x is 5", Because the last line of the five function is an expression `x + 1`. If we were to change it to `x + 1;`, that would turn it into an statement, removing the returned value and making the five function return the unit type `()`.
 Functions in Rust usually evaluate to the last expression in the body of the function, the keyword `return` is used to return early from the function. Return types must be declared explicitely with `->` in the function declaration
+
+### Loops
+In Rust there are while and for loops, while are called `loops`, for loops are called `for`. Loops can be used as expressions.
+For loops can take arrays and ranges  `a..b` as `in` parameters.
