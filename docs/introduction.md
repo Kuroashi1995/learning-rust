@@ -137,4 +137,10 @@ fn makes_copy(some_int: u32) {                  //some_int comes into scope
         println!("x = {some_int}");
 } //Here some_int goes out of scope, nothing special happens
 ```
-Handling ownership by moving values from scope to scope, can be tedious, that's where [referencing](#referencing) comes in handy.
+Handling ownership by moving values from scope to scope, can be tedious, that's where [referencing](#referencing-and-borrowing) comes in handy.
+
+### Referencing and Borrowing
+Referencing is kind of a pointer in the sense that it can be followed to access some data, but that data is [owned](#ownership) by some other variable, the difference is that a reference will always point to a valid value of that type.
+By default, references are not mutable, as variables. They can be tho, when the referenced variable is declared as mutable and the reference too `&mut (type)`
+Only one mutable reference to a variable can be active at any point
+There can be many non mutable references to a value at the same time, but while they are active, no mutable reference can be set.
