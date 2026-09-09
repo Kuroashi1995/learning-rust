@@ -9,17 +9,18 @@ Meaning that you can handle high level responsabilities if inexperienced or get 
 - It is important to learn to read Rust error messages
 
 ## Important keywords
-- Macros
 - [Types](#types)
 - [Crates](#crates)
-- References
 - [Mutability](#mutability)
-- Variations
-- Enums
-- Traits
 - [Shadowing](#shadowing)
 - [Functions](#functions)
 - [Loops](#loops)
+- [Ownership](#ownership)
+- References
+- Macros
+- Variations
+- Enums
+- Traits
 
 ### Crates
 This are how the packages of Rust are called, there are binary crates, which are the programs made to be ran, and crates that cannot run as standalones and are made to be part of other crate
@@ -104,3 +105,36 @@ Functions in Rust usually evaluate to the last expression in the body of the fun
 ### Loops
 In Rust there are while and for loops, while are called `loops`, for loops are called `for`. Loops can be used as expressions.
 For loops can take arrays and ranges  `a..b` as `in` parameters.
+
+### Ownership
+Ownership is the way Rust handles memory management without a garbage collector, basically is a set of rules that must be followed at compile time.
+The basic rules of ownership are:
+- Each value has an owner
+- There can only be one owner at a time
+- When the owner goes out of scope, the value will be dropped
+
+#### The String type
+This is the first variable size type that we see, this type needs to be allocated in the heap
+
+#### Moving vs Copying
+This is values are treated by the Rust compiler, usually, values that allocate into the heap "move" from scopes, while values allocated into the stack "copy" their values:
+```rust
+fn main() {
+        let s = String::from("value");  //Here, s comes into scope
+        take_ownership(s);              //Here, s's value moves into the function,
+                                        //... and it's not longer valid here
+
+        let x = 5;                      //Here x comes into scope
+        makes_copy(x);                  //x does not move into the function
+                                        //so it's okay to use afterwards
+} //Here, x goes out of scope, then s. However, because s's value was moved, nothing special happens
+
+fn take_ownership(some_string: String) {        //some_string comes into scope
+        println!("{some_string}");
+} //Here, some_string goes out of scope, and drop gets called, freeing the allocated memory
+
+fn makes_copy(some_int: u32) {                  //some_int comes into scope
+        println!("x = {some_int}");
+} //Here some_int goes out of scope, nothing special happens
+```
+Handling ownership by moving values from scope to scope, can be tedious, that's where [referencing](#referencing) comes in handy.
