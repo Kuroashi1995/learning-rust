@@ -16,7 +16,8 @@ Meaning that you can handle high level responsabilities if inexperienced or get 
 - [Functions](#functions)
 - [Loops](#loops)
 - [Ownership](#ownership)
-- References
+- [References](#referencing-and-borrowing)
+- [Slices](#slices)
 - Macros
 - Variations
 - Enums
@@ -144,3 +145,6 @@ Referencing is kind of a pointer in the sense that it can be followed to access 
 By default, references are not mutable, as variables. They can be tho, when the referenced variable is declared as mutable and the reference too `&mut (type)`
 Only one mutable reference to a variable can be active at any point
 There can be many non mutable references to a value at the same time, but while they are active, no mutable reference can be set.
+
+### Slices
+As many other languages we can slice strings and arrays, but how slicing works in Rust is slightly different, they hold a [reference](#referencing-and-borrowing) to the original data specified index and a length, they share the same rules as a normal reference.
