@@ -2,11 +2,15 @@
 It is stated that Rust is kind of a flexible programming language, closing the gap between what you can control depending on the experience you have.
 Meaning that you can handle high level responsabilities if inexperienced or get into the deeper levels if you are confident in you abilities.
 
+---
+
 ## Useful Tools
 - It has Cargo, it's dependency manager
 - It has a very verbal compiler
 - It has its own formatting tool and LSP
 - It is important to learn to read Rust error messages
+
+---
 
 ## Important keywords
 - [Types](#types)
@@ -18,13 +22,18 @@ Meaning that you can handle high level responsabilities if inexperienced or get 
 - [Ownership](#ownership)
 - [References](#referencing-and-borrowing)
 - [Slices](#slices)
+- [Structs](#structs)
 - Macros
 - Variations
 - Enums
 - Traits
 
+---
+
 ### Crates
 This are how the packages of Rust are called, there are binary crates, which are the programs made to be ran, and crates that cannot run as standalones and are made to be part of other crate
+
+---
 
 ### Mutability
 By default, variables are not mutable in Rust, it is made this way to make working with concurrency easier. But it is also the reason the keyword `mut` exists, is the only way to reassign a value to an existing `let` declared variable
@@ -44,7 +53,9 @@ example:
 const THREE_HOURS_IN_SECONDS: u32 = 3 * 60 * 60;
 ```
 
-### Shadowi
+---
+
+### Shadowing
 The concept of shadowing is the ability to re declare a variable with the same name, "shadowing" the previous declarations of that variable. It lasts until out of scope or getting shadowed again.
 example:
 ```rust
@@ -65,6 +76,8 @@ Rust is a statically typed language, so it needs to know the types used in compi
 
 There are two type classifications in Rust, Scalar Types and Compound Types.
 
+---
+
 #### Scalar Types
 This are the classic primitives that we all know, but they can only represent one value
 - int: (can be signed "i" or unsigned "u") like i32 for a 32-byte signed integer or u32 for a 32-byte unisgned integer
@@ -76,6 +89,8 @@ This are the classic primitives that we all know, but they can only represent on
 This classification hold types that can store multiple values, such as:
 - tuples (this can store many types, fixed len)
 - arrays (can hold many values of the same type, fixed len)
+
+---
 
 ### Functions
 Functions in Rust are quite simple and similar to other languages, the main issue relies in the statement vs expression differentiation needed to fully grasp how functions work in Rust.
@@ -103,9 +118,13 @@ fn five() {
 This code will compile, and will print "The value of x is 5", Because the last line of the five function is an expression `x + 1`. If we were to change it to `x + 1;`, that would turn it into an statement, removing the returned value and making the five function return the unit type `()`.
 Functions in Rust usually evaluate to the last expression in the body of the function, the keyword `return` is used to return early from the function. Return types must be declared explicitely with `->` in the function declaration
 
+---
+
 ### Loops
 In Rust there are while and for loops, while are called `loops`, for loops are called `for`. Loops can be used as expressions.
 For loops can take arrays and ranges  `a..b` as `in` parameters.
+
+---
 
 ### Ownership
 Ownership is the way Rust handles memory management without a garbage collector, basically is a set of rules that must be followed at compile time.
@@ -114,8 +133,12 @@ The basic rules of ownership are:
 - There can only be one owner at a time
 - When the owner goes out of scope, the value will be dropped
 
+---
+
 #### The String type
 This is the first variable size type that we see, this type needs to be allocated in the heap
+
+---
 
 #### Moving vs Copying
 This is values are treated by the Rust compiler, usually, values that allocate into the heap "move" from scopes, while values allocated into the stack "copy" their values:
@@ -140,11 +163,42 @@ fn makes_copy(some_int: u32) {                  //some_int comes into scope
 ```
 Handling ownership by moving values from scope to scope, can be tedious, that's where [referencing](#referencing-and-borrowing) comes in handy.
 
+---
+
 ### Referencing and Borrowing
 Referencing is kind of a pointer in the sense that it can be followed to access some data, but that data is [owned](#ownership) by some other variable, the difference is that a reference will always point to a valid value of that type.
 By default, references are not mutable, as variables. They can be tho, when the referenced variable is declared as mutable and the reference too `&mut (type)`
 Only one mutable reference to a variable can be active at any point
 There can be many non mutable references to a value at the same time, but while they are active, no mutable reference can be set.
 
+---
+
 ### Slices
 As many other languages we can slice strings and arrays, but how slicing works in Rust is slightly different, they hold a [reference](#referencing-and-borrowing) to the original data specified index and a length, they share the same rules as a normal reference.
+
+---
+
+### Structs
+Structs in Rust behave much like any other language, the conly caveat is once again... ownership and mutability, the only way to make fields mutable, is to make the whole declaration mutable, and when using update syntax values move or copy from struct one to updated one. As shown here:
+```rust
+fn main() {
+        let user1 = User {
+                name: String::from("Username"),
+                active: true,
+                logins: 64,
+        };
+
+        let user2 = User {
+                logins: 65,     //Here a new value is set for logins
+                ..user1,        //Here, under the hood, the value of user1.name gets moved to user2.name, and the value user1.active gets copied to user2.active
+        };
+
+        println!("user1 name is: {user1.name}"); //This will give a compilation error.
+}
+```
+
+Also, if I want to declare a field in a struct as a reference, lifetimes get involved.
+
+There are special types of structs too, Tuple like structs and Unit like structs.
+
+---
