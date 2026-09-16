@@ -23,9 +23,8 @@ Meaning that you can handle high level responsabilities if inexperienced or get 
 - [References](#referencing-and-borrowing)
 - [Slices](#slices)
 - [Structs](#structs)
+- [Enums](#enums)
 - Macros
-- Variations
-- Enums
 - Traits
 
 ---
@@ -202,3 +201,24 @@ Also, if I want to declare a field in a struct as a reference, lifetimes get inv
 There are special types of structs too, Tuple like structs and Unit like structs.
 
 ---
+
+### Enums
+Enums are an interesting way of handling exclusive union of "variants" (possible values)
+This way of implementation is very convenient, each variant can hold their own type, have default constructors and can be handled with match expressions
+There is one notable enum that is so imprtant that is in the Rust prelude: `Option`
+Option is used to declare the possible absense of value of a certain type:
+```rust
+enum Option {
+                None,
+                Some(T),
+}
+```
+None is the way to declare that the value is absent.
+This can be used in code as:
+```rust
+let i_val = Some(i32);
+let str_val = Some("Valid string");
+
+let absent_i = Option<i32> = None; // Here we need to implicitly declare the type because the compiler cannot infer values fron None.
+```
+Rust does not have a Null type (thank the Lord), so None cases should be handled explicitly too, making code supersafe
