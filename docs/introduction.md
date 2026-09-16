@@ -204,7 +204,7 @@ There are special types of structs too, Tuple like structs and Unit like structs
 
 ### Enums
 Enums are an interesting way of handling exclusive union of "variants" (possible values)
-This way of implementation is very convenient, each variant can hold their own type, have default constructors and can be handled with match expressions
+This way of implementation is very convenient, each variant can hold their own type, have default constructors and can be handled with match, let if and let else expressions
 There is one notable enum that is so imprtant that is in the Rust prelude: `Option`
 Option is used to declare the possible absense of value of a certain type:
 ```rust
