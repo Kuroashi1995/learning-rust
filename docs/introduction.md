@@ -24,6 +24,7 @@ Meaning that you can handle high level responsabilities if inexperienced or get 
 - [Slices](#slices)
 - [Structs](#structs)
 - [Enums](#enums)
+- [The Module System](#the-module-system)
 - Macros
 - Traits
 
@@ -222,3 +223,23 @@ let str_val = Some("Valid string");
 let absent_i = Option<i32> = None; // Here we need to implicitly declare the type because the compiler cannot infer values fron None.
 ```
 Rust does not have a Null type (thank the Lord), so None cases should be handled explicitly too, making code supersafe
+
+---
+
+### The Module System
+The module system is the way to organize code and dependencies in Rust, it is composed of:
+- Packages
+- Crates
+- Modules
+- Paths
+
+#### Crates
+Crates are the smallest part of code that the Rust compiler considers at a time. Crates can be `binary crates` or `library crates`
+
+#### Packages
+A package is a bundle of one or more crates that provide a functionality.
+A package can contain as many binary crates as wanted, but only one library crate.
+
+#### Modules
+Modules is the way to organize code for readability and easy use.
+They also handle scope and privacy of the code (by default modules are private)
