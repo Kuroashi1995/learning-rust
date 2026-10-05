@@ -30,11 +30,6 @@ Meaning that you can handle high level responsabilities if inexperienced or get 
 
 ---
 
-### Crates
-This are how the packages of Rust are called, there are binary crates, which are the programs made to be ran, and crates that cannot run as standalones and are made to be part of other crate
-
----
-
 ### Mutability
 By default, variables are not mutable in Rust, it is made this way to make working with concurrency easier. But it is also the reason the keyword `mut` exists, is the only way to reassign a value to an existing `let` declared variable
 ```rust
@@ -243,3 +238,6 @@ A package can contain as many binary crates as wanted, but only one library crat
 #### Modules
 Modules is the way to organize code for readability and easy use.
 They also handle scope and privacy of the code (by default modules are private)
+
+#### Paths
+In rust the way to bring modules, enums, mehtods into scope is to use paths. Can be relative paths, absolute paths or the `use` keyword. Just mind the scope and naming duplication
