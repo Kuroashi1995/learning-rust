@@ -25,6 +25,7 @@ Meaning that you can handle high level responsabilities if inexperienced or get 
 - [Structs](#structs)
 - [Enums](#enums)
 - [The Module System](#the-module-system)
+- [Collections](#collections)
 - Macros
 - Traits
 
@@ -241,3 +242,12 @@ They also handle scope and privacy of the code (by default modules are private)
 
 #### Paths
 In rust the way to bring modules, enums, mehtods into scope is to use paths. Can be relative paths, absolute paths or the `use` keyword. Just mind the scope and naming duplication
+
+### Collections
+This are useful data structures that point to data in the heap.
+
+#### Vectors
+
+#### Strings
+
+#### Hash maps
