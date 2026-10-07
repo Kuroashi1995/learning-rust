@@ -247,7 +247,9 @@ In rust the way to bring modules, enums, mehtods into scope is to use paths. Can
 This are useful data structures that point to data in the heap.
 
 #### Vectors
+Vectors are a collection that saves the same type of data from the heap in contiguous addresses in memory, it can be set to take an enum to store various types.
 
 #### Strings
+Strings are a wrapper over a vector that stores utf-8 characters
 
 #### Hash maps
