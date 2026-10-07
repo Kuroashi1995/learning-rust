@@ -251,3 +251,4 @@ This are useful data structures that point to data in the heap.
 #### Strings
 
 #### Hash maps
+Hash maps are a Data Structure that maps a value to a key, specifically in rust, key types are declarable, and as vectors, all keys and values must respect the type declaration
