@@ -253,3 +253,4 @@ Vectors are a collection that saves the same type of data from the heap in conti
 Strings are a wrapper over a vector that stores utf-8 characters
 
 #### Hash maps
+Hash maps are a Data Structure that maps a value to a key, specifically in rust, key types are declarable, and as vectors, all keys and values must respect the type declaration

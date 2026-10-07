@@ -1,0 +1,18 @@
+use std::collections::HashMap;
+fn main() {
+    let mut hm = HashMap::new();
+
+    //Inserting into a hashmap
+    hm.insert(String::from("Stark"), 100);
+    hm.insert(String::from("Rogers"), 1);
+
+    //Retrieving from a hashmap
+    let petty = hm.get(&String::from("Rogers")).copied().unwrap_or(0);
+    println!("The pettiest value is: {petty}")
+
+    //Iterating over hasmap entries
+    for (key, value) in &hm {
+        println!("key: {key}, value: {value}");
+    }
+}
+
