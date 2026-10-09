@@ -27,6 +27,7 @@ Meaning that you can handle high level responsabilities if inexperienced or get 
 - [The Module System](#the-module-system)
 - [Collections](#collections)
 - [Panic](#panic)
+- [Error handling](#error-handling)
 - Macros
 - Traits
 
@@ -256,3 +257,6 @@ Hash maps are a Data Structure that maps a value to a key, specifically in rust,
 
 ### Panic
 Panic is the way of rust to stop code execution, can be called by the macro `panic!` or can be triggered by a behavior that rust does not allow
+
+### Error handling
+Most operations in rust use the Result enum, that conatins variants of Ok<T> or Err<E>. And then there are many ways of handling the cases, we can panic, match on error type, use closures, etc
