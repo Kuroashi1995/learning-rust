@@ -37,5 +37,14 @@ fn main() {
     hm.entry(String::from("Vision")).or_insert(150);
 
     //Updating a value based on its current value
+    let reference_string = "Hello from the avengers team, we are the best of the best";
+    let mut word_counter = HashMap::new();
+
+    for word in reference_string.split_whitespace() {
+        let count = word_counter.entry(word).or_insert(0);
+        *count += 1;
+    }
+
+    println!("{word_counter:?}");
 }
 

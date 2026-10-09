@@ -26,6 +26,7 @@ Meaning that you can handle high level responsabilities if inexperienced or get 
 - [Enums](#enums)
 - [The Module System](#the-module-system)
 - [Collections](#collections)
+- [Panic](#panic)
 - Macros
 - Traits
 
@@ -252,3 +253,6 @@ This are useful data structures that point to data in the heap.
 
 #### Hash maps
 Hash maps are a Data Structure that maps a value to a key, specifically in rust, key types are declarable, and as vectors, all keys and values must respect the type declaration
+
+### Panic
+Panic is the way of rust to stop code execution, can be called by the macro `panic!` or can be triggered by a behavior that rust does not allow
