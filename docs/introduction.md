@@ -28,8 +28,8 @@ Meaning that you can handle high level responsabilities if inexperienced or get 
 - [Collections](#collections)
 - [Panic](#panic)
 - [Error handling](#error-handling)
+- [Traits](#traits)
 - Macros
-- Traits
 
 ---
 
@@ -262,3 +262,6 @@ Panic is the way of rust to stop code execution, can be called by the macro `pan
 
 ### Error handling
 Most operations in rust use the Result enum, that conatins variants of Ok<T> or Err<E>. And then there are many ways of handling the cases, we can panic, match on error type, use closures, etc
+
+### Traits
+Traits are the way that rust allow us to define shared behavior between types. Under the hood they behave much like a Generic
