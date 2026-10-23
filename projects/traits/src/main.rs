@@ -4,6 +4,16 @@ fn notify(item: &impl Summary) {
     println!("Breaking news! {}", item.summarize());
 }
 
+//also we can specify traits as return types
+fn returns_summarizable(username: String) -> impl Summary {
+    SocialPost {
+        username,
+        content: String::from("some content"),
+        reply: false,
+        repost: false
+    }
+}
+
 fn main() {
     let post = SocialPost {
         username: String::from("horse_ebooks"),
@@ -23,4 +33,9 @@ fn main() {
     println!("New article available! {}", article.summarize());
 
     notify(&article);
+
+    let summarizable = returns_summarizable(String::from("Tony Stark"));
+
+    println!("A new summarizable has appeared: {}", summarizable.summarize())
+
 }
