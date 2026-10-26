@@ -29,6 +29,7 @@ Meaning that you can handle high level responsabilities if inexperienced or get 
 - [Panic](#panic)
 - [Error handling](#error-handling)
 - [Traits](#traits)
+- [Lifetimes](#lifetimes)
 - Macros
 
 ---
@@ -265,3 +266,6 @@ Most operations in rust use the Result enum, that conatins variants of Ok<T> or 
 
 ### Traits
 Traits are the way that rust allow us to define shared behavior between types. Under the hood they behave much like a Generic
+
+### Lifetimes
+Rust has something called a Borrow Checker, that compares lifetimes of variables so there can be no dangling references. The thing is that sometimes we can define behavior that makes the lifetimes of certain values to be unpredictable, so there is a way to declare relationship between lifetimes. They are just another type of generics, and use the syntax `{name of lifetime}
